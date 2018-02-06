@@ -8,4 +8,5 @@ This workshop is an introduction to writing Lambdas - AWS' name for functions-as
 - npm install
 - ???
 
-# [Step 1 Lambda setup](01_lambda_setup.md)
+# [Step 1 Lambda setup](01_lambda_setup/README.md)
+# [Step 2 Create-a-lambda](02_create_a_lambda/README.md)

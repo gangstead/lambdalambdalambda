@@ -10,9 +10,9 @@ Step 1 - Lambda setup
     - Make sure to do both the Set Up and *Configuring the AWS Command Line Interface* parts of setup
     - There is a verify step that has you run `aws lambda list-functions --profile adminuser` but that didn't work for me on a new account
   - OPTIONAL: *Create a Simple Lambda*
-    - This is a basic walk through of creating a Hello World lambda from their blue prints in the AWS GUI.  We are going to create our lambda from the command line.
+    - This is a basic walk through of creating a Hello World lambda from their blue prints in the AWS GUI.
 
-# Congratulations you have set up AWS lambda.
+# Congratulations you have set up your AWS account and are ready to lambda.
 [Claim your reward here](https://i.pinimg.com/originals/35/22/9f/35229fe2940b5a251400b63fc280ed85.gif)
 
 Then [proceed to step 2](02_create_a_lambda.md)
