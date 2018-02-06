@@ -26,6 +26,7 @@ Now that you've set up your AWS account and can create lambdas it's time to crea
 - On the API Gateway settings you will see that it is listening for any method (GET/POST/PUT/etc) and the Invoke URL is the path to get to your webhook.  Test it by hitting it directly:
 ```
 curl -X POST -H \ "Content-Type: application/json" -d '{ "data": "hello" }' "https://uco290nvi0.execute-api.us-east-1.amazonaws.com/prod/webhook-lambda"
+```
 
 ### Option 2 through the CLI
 _This is a work in progress_
