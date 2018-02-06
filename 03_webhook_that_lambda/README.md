@@ -25,3 +25,5 @@ You've now got a lambda that responds to http requests.  It's time to send those
 - Providing links to navigate an API like this is a pattern called [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)
 - You will have to zip up your webhook folder and upload it multiple times
 - Example code in [github-webhook-lambda](github-webhook-lambda/)
+
+Now [proceed to step 4](../04_make_better_webhook/)

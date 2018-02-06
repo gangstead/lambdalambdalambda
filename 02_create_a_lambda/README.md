@@ -44,3 +44,6 @@ aws lambda create-function \
 
 ### Make REST API out of lambda
 #TODO: This can be done with the CLI, but I'm not sure how
+
+
+Next [proceed to step 3](../03_webhook_that_lambda/)

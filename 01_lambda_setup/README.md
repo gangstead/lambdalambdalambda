@@ -15,4 +15,4 @@ Step 1 - Lambda setup
 # Congratulations you have set up your AWS account and are ready to lambda.
 [Claim your reward here](https://i.pinimg.com/originals/35/22/9f/35229fe2940b5a251400b63fc280ed85.gif)
 
-Then [proceed to step 2](02_create_a_lambda.md)
+Then [proceed to step 2](../02_create_a_lambda/)
