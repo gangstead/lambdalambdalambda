@@ -1,0 +1,18 @@
+{
+  "name": "webhook-lambda",
+  "version": "1.0.0",
+  "repository": "blahblahblah",
+  "description": "Lambda function that acts as a Github webhook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gangstead",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^25.0.0",
+    "lodash": "^4.17.5",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  }
+}

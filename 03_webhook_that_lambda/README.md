@@ -1,7 +1,7 @@
 Step 3 Make lambda serve as a github webhook
 ============================================
 
-You've now got a lambda that responds to http requests.  It's time to send those requests to github.
+You've now got a lambda that responds to http requests.  It's time to send those requests to github.  Your lambda's job is to find the last comment when an issue is closed.
 
 ### Stick a Fork in it
 - Go to this repo (or any repo for that matter) https://github.com/gangstead/lambdalambdalambda
