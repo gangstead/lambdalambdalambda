@@ -2,8 +2,11 @@
 
 const _ = require('lodash');
 const rp = require('request-promise');
-const google = require('googleapis');
+const {google} = require('googleapis');
 const sheets = google.sheets('v4');
+
+const clientSecret = JSON.parse(process.env.client_secret);
+const spreadsheetId = process.env.spreadsheet_id;
 
 exports.handler = (event, context, callback) => {
     // Find this log in cloudwatch https://console.aws.amazon.com/cloudwatch/home
@@ -20,13 +23,16 @@ exports.handler = (event, context, callback) => {
       }).then((comments) => {
         const lastComment = _.get(_.last(comments), 'body', 'no comment made');
         console.log('Last Comment: ', lastComment);
-        googleAuthorize(readSheet) //TODO: move the callback into here after the sheet is read and updated
+        return addToSheet(
+          // these match the columns in the spreadsheet
+          [ body.issue.title, lastComment, body.issue.closed_at, body.issue.url ]
+        );
+      }).then(() => {
         return callback(null, {
           isBase64Encoded: false,
           statusCode: 200,
           body: JSON.stringify({
-            action: 'found comment',
-            lastComment
+            action: 'spreadsheet updated'
           })
         });
       })
@@ -51,53 +57,40 @@ exports.handler = (event, context, callback) => {
     });
 };
 
-function readSheet(authClient) {
-  var request = {
-    // The ID of the spreadsheet to retrieve data from.
-    spreadsheetId: 'my-spreadsheet-id',  // TODO: Update placeholder value.
+function addToSheet(row) {
+  return new Promise((resolve, reject) => {
+    console.log('swg clientSecret', clientSecret);
+    const jwtClient = new google.auth.JWT(
+      clientSecret.client_email, // Make sure spreadsheet is shared with this email!
+      null,
+      clientSecret.private_key,
+      ['https://www.googleapis.com/auth/spreadsheets'],
+      null
+    );
 
-    // The A1 notation of the values to retrieve.
-    range: 'my-range',  // TODO: Update placeholder value.
+    jwtClient.authorize((authErr, tokens) => {
+      if (authErr) {
+        console.log('authorize err:', authErr);
+        return reject(authErr);
+      }
 
-    // How values should be represented in the output.
-    // The default render option is ValueRenderOption.FORMATTED_VALUE.
-    valueRenderOption: '',  // TODO: Update placeholder value.
-
-    // How dates, times, and durations should be represented in the output.
-    // This is ignored if value_render_option is
-    // FORMATTED_VALUE.
-    // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-    dateTimeRenderOption: '',  // TODO: Update placeholder value.
-
-    auth: authClient,
-  };
-
-  sheets.spreadsheets.values.get(request, function(err, response) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-
-    // TODO: Change code below to process the `response` object:
-    console.log(JSON.stringify(response, null, 2));
-  });
-});
-
-function googleAuthorize(callback) {
-  // TODO: Change placeholder below to generate authentication credentials. See
-  // https://developers.google.com/sheets/quickstart/nodejs#step_3_set_up_the_sample
-  //
-  // Authorize using one of the following scopes:
-  //   'https://www.googleapis.com/auth/drive'
-  //   'https://www.googleapis.com/auth/drive.file'
-  //   'https://www.googleapis.com/auth/drive.readonly'
-  //   'https://www.googleapis.com/auth/spreadsheets'
-  //   'https://www.googleapis.com/auth/spreadsheets.readonly'
-  var authClient = null;
-
-  if (authClient == null) {
-    console.log('authentication failed');
-    return;
-  }
-  callback(authClient);
+      sheets.spreadsheets.values.append({
+        auth: jwtClient,
+        spreadsheetId: spreadsheetId,
+        range: 'Sheet1!A:D',
+        valueInputOption:'RAW',
+        resource: {
+          majorDimension: 'ROWS',
+          values: [ row ]
+        }
+      }, (appendErr, response) => {
+        if (appendErr) {
+          console.log('The API returned an error: ' + err);
+          return reject(appendErr);
+        }
+        console.log('Row added to spreadsheet successfully!');
+        return resolve();
+      });
+    });
+  })
 }

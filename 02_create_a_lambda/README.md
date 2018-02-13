@@ -1,7 +1,14 @@
 Step 2 Create-a-Lambda
 =======================
 
-Now that you've set up your AWS account and can create lambdas it's time to create one.  The webhook code has been started, *but not completed*, for you in the `/webhook-lambda` directory.
+Now that you've set up your AWS account and can create lambdas it's time to create one.  In it's simplest form a Hello World Lambda example:
+```js
+exports.handler = (event, context, callback) => {
+    callback(null, 'hello world');
+};
+```
+
+While this could be copy and pasted into the AWS Lambda Console we are going to make it a little bit more complex to show how you would update a non-trivial lambda.
 
 # Prepare the files on your machine
 - In the `/webhook-lambda` directory...
@@ -11,6 +18,7 @@ Now that you've set up your AWS account and can create lambdas it's time to crea
   - `zip -r ../webhook-lambda.zip  *`
   - Make sure the files are in the root level of the zip and not one level deep.  Otherwise you will get errors like "Cannot find module '/var/task/index'"
   - AWS calls this a "Deployment Package."  It has all the files and dependencies necessary, but tells nothing about where or how to deploy the Lambda
+- **NOTE** This response format for responding to an API Gateway (HTTP / rest endpoint for a lambda) was hard to track down: https://aws.amazon.com/premiumsupport/knowledge-center/malformed-502-api-gateway/
 
 # Create lambda
 
