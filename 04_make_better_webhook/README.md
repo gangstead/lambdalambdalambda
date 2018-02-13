@@ -33,4 +33,10 @@ The goal in this section is to take the last comment when an issue is closed (fo
   - Don't forget to `JSON.parse(process.env.client_secret)`
 
 ## Combine spreadsheet and webhook
-- [Example lambda-spreadsheet-webhook](webhook-lambda/index.js)
+- Now on one hand you have made a lambda, added a REST interface to it (API Gateway in AWS speak), made it act like a github webhook.  On the other hand you have a script that will update a google spreadsheet.  The only thing that's left is to [stick the two together](https://res.cloudinary.com/cmgverticals/image/upload/f_auto,q_80/h_221,w_400/v1486346797/Stuck_lwni0h.gif).
+- [Example completed lambda-spreadsheet-webhook](webhook-lambda/index.js)
+
+
+# Congratulations
+You have finished and created a useful thing.
+![](https://i.imgflip.com/24gqed.jpg)
