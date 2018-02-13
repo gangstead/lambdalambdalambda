@@ -34,7 +34,8 @@ The goal in this section is to take the last comment when an issue is closed (fo
 
 ## Combine spreadsheet and webhook
 - Now on one hand you have made a lambda, added a REST interface to it (API Gateway in AWS speak), made it act like a github webhook.  On the other hand you have a script that will update a google spreadsheet.  The only thing that's left is to [stick the two together](https://res.cloudinary.com/cmgverticals/image/upload/f_auto,q_80/h_221,w_400/v1486346797/Stuck_lwni0h.gif).
-- [Example completed lambda-spreadsheet-webhook](webhook-lambda/index.js)
+- I've also made a stand alone [tester](spreadsheet-webhook-lambda/test-index.js) in case you want to trouble shoot your lambda outside of AWS
+- [Example completed lambda-spreadsheet-webhook](spreadsheet-webhook-lambda/index.js)
 
 
 # Congratulations
