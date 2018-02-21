@@ -8,6 +8,7 @@ You've now got a lambda that responds to http requests.  It's time to send those
 - Make a fork (top right corner) to create your own copy of the repo
 
 ### Hook it up
+- Enable issues `⚙️ Settings` -> (scroll down) `Features` -> `☑️ Issues` (only necessary for forks, regular repos get them enabled by default)
 - Once you have your fork click on `⚙️ Settings` -> `Webhooks` -> `Add webhook` (re-enter your github password)
 - For Payload URL enter your Lambda Invoke URL
 - Change content type to `application/json`
