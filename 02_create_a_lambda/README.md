@@ -29,8 +29,7 @@ While this could be copy and pasted into the AWS Lambda Console we are going to 
   - Click "Create Function"
 - Under the "Function Code" setup block select "Code entry type" then "Upload a .ZIP file" and upload your code.
 - The function is created but it's not ready yet. On the next page add "API Gateway" trigger
-- Leave API name and Deployment stage the default value, change "Security" to "Open".  Click "Add"
-- In the "Function code" section (you might have to save function and possibly reload page to get it to show up) change Code entry type to "Upload a .ZIP file" and upload the file with the lambda.  Save.
+- Enter API name and deployment stage (I did LambdaMicroService/Prod), change "Security" to "Open".  Click "Add"
 - On the API Gateway settings you will see that it is listening for any method (GET/POST/PUT/etc) and the Invoke URL is the path to get to your webhook.  Test it by hitting it directly:
 ```
 curl -X POST -H \ "Content-Type: application/json" -d '{ "data": "hello" }' "https://uco290nvi0.execute-api.us-east-1.amazonaws.com/prod/webhook-lambda"
