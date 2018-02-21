@@ -59,7 +59,7 @@ exports.handler = (event, context, callback) => {
 
 function addToSheet(row) {
   return new Promise((resolve, reject) => {
-    console.log('swg clientSecret', clientSecret);
+    console.log('clientSecret', clientSecret);
     const jwtClient = new google.auth.JWT(
       clientSecret.client_email, // Make sure spreadsheet is shared with this email!
       null,
