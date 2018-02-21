@@ -10,3 +10,10 @@ This workshop is an introduction to writing Lambdas - AWS' name for functions-as
 # [Step 2 Create-a-lambda](02_create_a_lambda/)
 # [Step 3 Webhook that lambda](03_webhook_that_lambda/)
 # [Step 4 Make better webhook](04_make_better_webhook/)
+
+
+
+## End result
+- Open an issue here: https://github.com/gangstead/lambdalambdalambda/issues
+- Leave a comment, close the issue
+- This google spreadsheet will be updated: https://docs.google.com/spreadsheets/d/1R-4dMqbToquWECR6rZxusaL_cFV6XzpFm0nKiWIaUQs/edit?usp=sharing
