@@ -5,7 +5,8 @@ Step 1 - Lambda setup
     - Even if you already have one, you'll need to set up an IAM user
     - You will need a phone number that will be validated and a credit card, but it won't be charged
     - After creating the account when you create the user you will sign in with the email address used to create the account, not the user name.  Then you can create the IAM user
-  - *Set Up the AWS CLI*
+  - TODO: CLI stuff.  Disregard CLI instructions, that's to be added later
+   - *Set Up the AWS CLI*
     - The instructions give you two options: `pip` (Python installer) or [Standalone Installer](https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html).  If you don't already have pip installed save yourself the time dealing with Python versions and do the Standalone.
     - Make sure to do both the Set Up and *Configuring the AWS Command Line Interface* parts of setup
     - There is a verify step that has you run `aws lambda list-functions --profile adminuser` but that didn't work for me on a new account

@@ -22,7 +22,6 @@ While this could be copy and pasted into the AWS Lambda Console we are going to 
 
 # Create lambda
 
-### Option 1 through the AWS Console (web interface)
 - Go to [Lambda](https://console.aws.amazon.com/lambda/home) home page and "Create a Function"
   - Give it a name and choose Node.js 6.10
   - For Role either "Create a Custom Role" and accept the defaults in the window that pops up or head over to [IAM](https://console.aws.amazon.com/iam/home) and create a new role with the Trusted Entity "Lambda" and the policy "AWSLambdaBasicExecutionRole".
@@ -35,7 +34,7 @@ While this could be copy and pasted into the AWS Lambda Console we are going to 
 curl -X POST -H \ "Content-Type: application/json" -d '{ "data": "hello" }' "https://uco290nvi0.execute-api.us-east-1.amazonaws.com/prod/webhook-lambda"
 ```
 
-### Option 2 through the CLI
+### TODO: Later (CLI mode is still a work in progress, skip it for now)
 _This is a work in progress_
 ```
 aws lambda create-function \
